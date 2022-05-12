@@ -1,0 +1,79 @@
+#main {
+    padding-top: 74px;
+}
+
+@media (min-width: 992px) {
+    #main {
+      padding-top: 104px;
+    }
+}
+
+@font-face {
+    font-family: "Cafe24surround";
+    src: 
+    url("fonts/cafe24ssurround-webfont.woff") format("woff"),
+    url("fonts/Cafe24Ssurround.ttf") format("truetype");
+}
+
+.navbar-brand {
+    font-family: "Cafe24surround";
+}
+
+.ban-bg-primary {
+    background-color: #042920;
+}
+
+
+#mainNav .navbar-nav li.nav-item a.nav-link {
+    border-bottom: 2px solid transparent;
+    transition: border-bottom .2s, color .2s;
+  }
+#mainNav .navbar-nav li.nav-item a.nav-link:hover {
+color: #042920;
+border-color: #042920;
+}
+#mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
+background-color: none;
+color: #042920;
+}
+#mainNav .navbar-nav li.nav-item a.nav-link.active {
+background-color: none;
+color: white;
+border-color: #042920;
+}
+
+@media (min-width: 992px) {
+    #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
+        background: none;
+        color: white;
+        border-color: #042920;
+    }
+    #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
+        background: none;
+        color: #042920;
+    }
+}
+
+.masthead .masthead-avatar {
+    width: 170px;
+    height: 170px;
+    border-radius: 70%;
+}
+
+.masthead {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+@media (min-width: 992px) {
+    .masthead {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+}
+
+.masthead {
+    background-image: url("../img/cover.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
