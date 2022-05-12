@@ -1,0 +1,38 @@
+version: "3.10"
+
+x-service-volumes: &service-volumes
+  - ./:/app:rw,cached
+
+services:
+  website:
+    image: bdwrtr-django-tutorial:latest
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes: *service-volumes
+    env_file:
+      - django_variables.env
+      - variables.env
+    depends_on:
+      - db_migrate
+    ports:
+      - "8000:8000"
+
+  db_migrate:
+    image: bdwrtr-django-tutorial:latest
+    command: python manage.py migrate
+    volumes: *service-volumes
+    env_file:
+      - variables.env
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    env_file:
+      - variables.env
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
