@@ -1,0 +1,41 @@
+{% url 'public:index' as index_url %}
+{% url 'public:about' as about_url %}
+{% url 'contact:contact' as contact_url %}
+{% url 'account:profile' as profile_url %}
+
+<!-- Footer-->
+<footer class="footer text-center">
+    <div class="container">
+        <div class="row">
+            <!-- Footer Location-->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <p class="lead mb-0">
+                    Reach Us @
+                    <br />
+                    <a href="mailto:bdwrtr@naver.com">bdwrtr@naver.com</a>
+                </p>
+            </div>
+            <!-- Footer Social Icons-->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <a class="btn btn-outline-light btn-social mx-1" title="Youtube" href="#!"><i class="fab fa-fw fa-youtube"></i></a>
+                <a class="btn btn-outline-light btn-social mx-1" title="Instagram" href="#!"><i class="fab fa-fw fa-instagram"></i></a>
+                <a class="btn btn-outline-light btn-social mx-1" title="Blog" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
+                <a class="btn btn-outline-light btn-social mx-1" title="Github" href="#!"><i class="fab fa-fw fa-github"></i></a>
+            </div>
+            <!-- Footer About Text-->
+            <div class="col-lg-4">
+                <p class="lead mb-0">
+                    Quick Links
+                    <br />
+                    <a class="px-2 {% if request.path == index_url %}active{% endif %}" href="{{ index_url }}">Home</a>
+                    <a class="px-2 {% if request.path == about_url %}active{% endif %}" href="{{ about_url }}">About</a>
+                    <a class="px-2 {% if request.path == contact_url %}active{% endif %}" href="{{ contact_url }}">Contact</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Copyright Section-->
+<div class="copyright py-4 text-center text-white">
+    <div class="container"><small>Copyright &copy; biana-bdwrtr</small></div>
+</div>

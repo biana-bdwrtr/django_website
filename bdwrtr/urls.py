@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('bdwrtr.apps.public.urls')),
     path('accounts/', include('bdwrtr.apps.accounts.urls')),
+    path('contact/', include('bdwrtr.apps.contact.urls')),
 ]

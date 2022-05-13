@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bdwrtr.apps.accounts',
+    'bdwrtr.apps.contact',
 ]
 
 MIDDLEWARE = [
@@ -80,8 +81,6 @@ POSTGRES_DB = os.environ.get('POSTGRES_DB', default="")
 POSTGRES_USER = os.environ.get('POSTGRES_USER', default="")
 POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD', default="")
 POSTGRES_HOST = os.environ.get('POSTGRES_HOST', default="")
-
-print(f"debug2, {POSTGRES_DB}, {POSTGRES_USER}, {POSTGRES_PASSWORD}, {POSTGRES_HOST}")
 
 DATABASES = {
     'default': {
@@ -142,3 +141,6 @@ LOGOUT_REDIRECT_URL = "public:index"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+DEFAULT_FROM_EMAIL = "bdwrtr@naver.com"

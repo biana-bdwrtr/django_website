@@ -3,7 +3,61 @@
 {% block title %}Contact{% endblock %}
 
 {% block content %}
-<h1>
-    Contact
-</h1>
+<section class="page-section" id=""contact">
+    <div class="container">
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Us</h2>
+
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-envelope"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+
+        <div class="text-center text-secondary mb-0">
+            <p>
+                We do our best to respond to emails, but we get so many that it's sometimes hard to respond to all of them. If you don't get a response, try following up in a few days. The email might be buried in our inbox.
+            </p>
+            <p>
+                If you need help with a coding project, please don't send us an email. We don't have enough bandwidth to answer specific coding questions. You should be able to find help from someone in the community if you submit an issue on the Github page for that project.
+            </p>
+            <p>
+                You can alsoe send us an email at <a href="mailto:bdwrtr@naver.com">bdwrtr@naver.com</a>
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+
+                {% if success %}
+                <div class="alert alert-success" role="alert">
+                    Your message was sent! Check your inbox for a response.
+                </div>
+                {% endif %}
+
+                <form id="contactFrom" name="sentMessage" novalidate="novalidate" method="post">
+                    {% csrf_token %}
+
+                    {% if form.non_field_errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ form.non_field_errors}}
+                    </div>
+                    {% endif %}
+
+                    {% for field in form %}
+                    <div class="control-group">
+                        <div class="form-group flating-label-form-group controls mb-0 pb-2">
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {% for error in field.errors %}
+                            <p class="help-block text-danger">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <br />
+                    <div class="form-group"><button class="btn ban-bg-primary btn-xl text-white" id="sendMessageButton" type="submit">Send</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
